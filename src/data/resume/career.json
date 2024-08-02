@@ -1,0 +1,83 @@
+[
+  {
+    "id":  "dao",
+    "startDate":  "2022-09",
+    "endDate":  "2024-08",
+    "jobTitle":  "Co-founder & Developer",
+    "companyName":  "DAO Teknoloji ve Bilisim",
+    "location":  "Istanbul, Türkei",
+    "details": [
+      "Spearheaded the development and launch of a mobile application using React Native for a webcomic reading and publishing platform, incorporating advanced features like a monetization model (content paywalls, early access, subscriptions), integrated social media functionalities (posts, timelines, comments, friend connections, user profiles), and a comprehensive chat system (contact management, user presence, instant messaging).",
+      "Engineered and oversaw a robust backend system utilizing Symfony framework, ensuring seamless REST API support for both mobile and web applications, including a dedicated producer’s panel. Employed a range of technologies including PHP, MariaDB, Redis, Supervisord, StimulusJS, React, Less, Docker, and Docker Swarm for optimal performance and scalability.",
+      "Successfully deployed and customized an Ejabberd XMPP server to support enhanced messaging features, such as authentication processes and offline push notifications, improving user engagement and platform reliability.",
+      "Founded and managed a technology startup. Oversaw all aspects of business and product development, team building, and strategic direction.",
+      "Recruited, trained, and mentored junior staff, including a React Native Developer and a PHP Developer, fostering a collaborative and skill-enhancing work environment."
+    ]
+  },
+  {
+    "id":  "gerekli-seyler-web",
+    "startDate":  "2021-05",
+    "endDate":  "2022-09",
+    "jobTitle":  "Web Developer & Systems Integrator",
+    "companyName":  "Gerekli Seyler",
+    "location":  "Istanbul, Türkei",
+    "details": [
+      "Led the design and development of web services for a comprehensive\nMagento E-commerce application, focusing on both back-end and front-end\ncomponents to enhance functionality and user experience.",
+      "Implemented and customized an Akeneo Product Information Management\n(PIM) system, seamlessly integrating it with the Magento E-commerce\nplatform.",
+      "Managed data reorganization and migration to new systems, ensuring\nseamless transitions and maintaining data integrity.",
+      "Provided ongoing remote support for E-commerce and PIM systems,\nensuring system reliability and performance."
+    ]
+  },
+  {
+    "id":  "gerekli-seyler-production",
+    "startDate":  "2017-03",
+    "endDate":  "2019-01",
+    "jobTitle":  "Production Manager",
+    "companyName":  "Gerekli Seyler",
+    "location":  "Istanbul, Türkei",
+    "details": [
+      "Coordinated with translation and editorial teams to streamline content\nproduction workflows.",
+      "Managed print production processes, including liaising with external providers\nand overseeing quality control to ensure high standards.",
+      "Maintained consistent design and color management across ongoing\nseries of over 40 volumes, ensuring brand coherence and visual integrity.",
+      "Implemented digital solutions and workflows to complement traditional\nproduction processes, enhancing efficiency and modernizing operations."
+    ]
+  },
+  {
+    "id":  "gerekli-seyler-graphic",
+    "startDate":  "2016-01",
+    "endDate":  "2017-01",
+    "jobTitle":  "Graphic Artist",
+    "companyName":  "Gerekli Seyler",
+    "location":  "Istanbul, Türkei",
+    "details": [
+      "Managed the production of graphic novels, including cleaning, redrawing,\nlettering, and cover redesigns, ensuring adherence to localization and aesthetic\nstandards.",
+      "Oversaw the printing process and quality control, maintained consistent\ndesign across series of over 40 volumes, and developed reusable assets and\nscripts to enhance efficiency.",
+      "Designed graphics for web, catalogs, and social media, alongside creating\ncustom titles, logos, and fonts, bolstering brand identity and market\npresence.",
+      "Developed reusable media assets and batch scripts to streamline production\nand increase operational efficiency."
+    ]
+  },
+  {
+    "id":  "pixelplus",
+    "startDate":  "2016-01",
+    "endDate":  "2015-06",
+    "jobTitle":  "Art Director",
+    "companyName":  "Pixelplus Interactive",
+    "location":  "Istanbul, Türkei",
+    "details": [
+      "Managed the production of daily visual content for social media platforms,\nenhancing online engagement and brand visibility.",
+      "Designed landing pages to optimize user experience and support marketing\nand sales objectives."
+    ]
+  },
+  {
+    "id":  "freelance",
+    "startDate":  "2016-01",
+    "endDate":  "2015-06",
+    "jobTitle":  "Freelance Designer / Wordpress Developer",
+    "companyName":  null,
+    "location":  "Istanbul, Türkei",
+    "details": [
+      "Specialized in web design and full-stack development, creating visually\nappealing and functional websites with WordPress.",
+      "Developed user interfaces and user experiences (UI/UX), enhancing site\nusability and customer engagement across multiple projects."
+    ]
+  }
+]

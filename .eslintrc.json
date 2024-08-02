@@ -1,0 +1,53 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:tailwindcss/recommended",
+    "plugin:readable-tailwind/error",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "readable-tailwind", "prettier"],
+  "root": true,
+  "rules": {
+
+    "semi": ["error", "never"],
+//    "indent": ["error", 2],
+    "max-len": ["error", {"code": 120, "ignoreUrls": true}],
+    "tailwindcss/classnames-order": 0,
+    "readable-tailwind/multiline": ["error", { "printWidth": 120, "group": "newLine" }],
+    "prettier/prettier": [
+      "error",
+      {
+        "semi": false,
+        "printWidth": 120,
+        "indent": 2,
+        "tabWidth": 2
+      }
+    ]
+  },
+  "settings": {
+    "tailwindcss": {
+      "callees": ["classnames", "clsx", "ctl"],
+      "config": "tailwind.config.js",
+      "cssFiles": [
+        "**/*.css",
+        "!**/node_modules",
+        "!**/.*",
+        "!**/dist",
+        "!**/build"
+      ],
+      "cssFilesRefreshRate": "5_000",
+      "removeDuplicates": true,
+      "skipClassAttribute": false,
+      "whitelist": [
+        "bg\\-(primary|secondary|mid\\-gray|card|root)",
+        "text\\-(primary|secondary|mid\\-gray)",
+        "fill\\-(primary|secondary|mid\\-gray|card|root)"
+      ],
+      "tags": []
+    }
+  }
+}

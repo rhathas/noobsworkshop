@@ -1,0 +1,36 @@
+---
+title: Backend Tech Stack Diagram for a Webcomics Platform
+description: A Tech diagram for the backend services which are used in CosmicToons, a webcomics publishing and reading platform with social media features. Tech stack includes PHP, Symfony, Nginx, Redis, ElasticSearch, MariaDB, Ejabberd.
+previewImage: /images/blog/2024/august/Cosmictoons-Backend-Diagram.jpg
+authors:
+  - name: Ogulcan Gündüz
+date: 2024-08-06
+---
+
+import {BlogItemInfo} from "@/app/_components/blog/BlogItemInfo"
+import {BlogImage} from "@/app/_components/blog/BlogImage"
+import { generateMdxMetadata } from "@/lib/generateMdxMetadata"
+import previewImage from "./Cosmictoons-Backend-Diagram.jpg"
+export const metadata = generateMdxMetadata(frontmatter, slug)
+
+# Backend Tech Stack Diagram for a Webcomics Platform
+<BlogItemInfo date={frontmatter.date} readingTime={readingTime.text} />
+
+🚀 Excited to introduce CosmicToons, the ultimate webtoon reading, publishing, and social media platform! 🌟
+I've been working tirelessly on developing the backend architecture, and I'm thrilled to share a glimpse of the systems that power CosmicToons. From seamless user interactions to real-time messaging, here's a look at how it all comes together.
+
+<BlogImage src={previewImage} alt="Backend Tech Stack Diagram for a Webcomics Platform Image" />
+
+🔍 Highlights of our backend services include:
+- **Scalable Architecture**: Built to handle growing user demands with ease.
+- **Seamless Integration**: Connecting various services to provide a seamless user experience.
+- **Robust Security**: Ensuring user data and content are always protected.
+
+Key Features of the platform:
+- 📚 Webtoon Reading & Publishing
+- 💬 Integrated Chat Service with Ejabberd
+- 🔔 Real-time Notifications via Firebase Cloud Messaging
+- 🔍 Enhanced Search Capabilities using Elasticsearch
+- ⚙️ Modern Frontend with Twig, StimulusJS, and React
+
+I'm incredibly proud of what we've accomplished and excited for what lies ahead. Stay tuned for more updates and join us on this journey to revolutionize the webtoon industry!
