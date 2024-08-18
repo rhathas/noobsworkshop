@@ -1,8 +1,9 @@
 "use client"
 
 import { useCallback, useEffect, useRef, useState } from "react"
-import Image, { getImageProps, ImageProps } from "next/image"
+import { getImageProps } from "next/image"
 import { clsx } from "clsx"
+import ExportedImage, { ExportedImageProps } from "next-image-export-optimizer"
 
 type Transform = {
   scale: number
@@ -12,7 +13,7 @@ type Transform = {
 
 const scrollOffset = 40
 
-export const BlogImage = ({ src, alt }: ImageProps) => {
+export const BlogImage = ({ src, alt }: ExportedImageProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const zoomed = useRef(false)
   const imageRef = useRef<HTMLImageElement>(null)
@@ -93,7 +94,7 @@ export const BlogImage = ({ src, alt }: ImageProps) => {
         }
         ref={containerRef}
       >
-        <Image
+        <ExportedImage
           src={src}
           alt={alt}
           fill
@@ -106,7 +107,6 @@ export const BlogImage = ({ src, alt }: ImageProps) => {
           )}
           onClick={openZoom}
           ref={imageRef}
-          quality={100}
           unoptimized={!!transform}
           sizes={
             "(min-width: 1024px) 960px, (min-width: 768px) 736px, (min-width: 640px) 608px, " +

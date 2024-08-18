@@ -1,7 +1,7 @@
-import Image from "next/image"
 import Link from "next/link"
 import { BlogItemInfo, BlogItemInfoProps } from "@/app/_components/blog/BlogItemInfo"
 import CaretRight from "@/statics/icons/caret-right.svg"
+import ExportedImage from "next-image-export-optimizer"
 
 type BlogListItemProps = {
   title: string
@@ -14,11 +14,14 @@ export const BlogListItem = ({ title, description, previewImage, slug, date, rea
   return (
     <div className={"flex w-full flex-col gap-4 rounded bg-card p-4"}>
       <Link href={`/blog/${slug}`} className={"relative aspect-video w-full"}>
-        <Image
+        <ExportedImage
+          className={`
+            m-0 object-contain
+            lg:m-0
+          `}
           src={previewImage}
           alt={`${title} Preview Image`}
           fill
-          objectFit={"contain"}
           sizes={
             "(min-width: 1024px) 960px, (min-width: 768px) 736px, (min-width: 640px) 608px, " +
             "(min-width: 480px) 448px, 100vw"
