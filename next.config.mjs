@@ -13,13 +13,9 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   transpilePackages: ["next-image-export-optimizer"],
   env: {
-    nextImageExportOptimizer_imageFolderPath: "public/images",
     nextImageExportOptimizer_exportFolderPath: "dist",
     nextImageExportOptimizer_quality: "75",
-    nextImageExportOptimizer_storePicturesInWEBP: "true",
     nextImageExportOptimizer_exportFolderName: "exportedImages",
-    nextImageExportOptimizer_generateAndUseBlurImages: "true",
-    nextImageExportOptimizer_remoteImageCacheTTL: "0",
   },
   webpack(config) {
     // Grab the existing rule that handles SVG imports

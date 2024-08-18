@@ -8,8 +8,12 @@ export const generateMdxMetadata = (frontmatterData: BlogMetaDataType, slug: str
       siteName: "noob's Workshop - Ogulcan Gündüz",
       locale: "en_US",
       type: "article",
-      image: `${process.env.BASE_URL}/${frontmatterData.previewImage}`,
-      imageAlt: `noob's Workshop - Preview Image for ${frontmatterData.title}`,
+      images: [
+        {
+          url: `${process.env.BASE_URL}${frontmatterData.previewImage}`,
+          alt: `noob's Workshop - Preview Image for ${frontmatterData.title}`,
+        },
+      ],
       article: {
         authors: frontmatterData.authors.map((author) => author.name),
         publishedDate: frontmatterData.date,
@@ -23,7 +27,7 @@ export const generateMdxMetadata = (frontmatterData: BlogMetaDataType, slug: str
       title: frontmatterData.title,
       description: frontmatterData.description,
       authors: frontmatterData.authors.map((author) => author.name),
-      image: `${process.env.BASE_URL}/${frontmatterData.previewImage}`,
+      image: `${process.env.BASE_URL}${frontmatterData.previewImage}`,
     },
     article: {
       author: `${process.env.BASE_URL}/resume`,
