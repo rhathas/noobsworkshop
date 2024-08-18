@@ -3,7 +3,6 @@ import path from "path"
 import fs from "fs"
 import readingTime from "reading-time"
 import { typedMatter } from "@/lib/typedMatter"
-import { BlogMetaDataType } from "@/types/blogFrontmatter"
 
 export const getAllBlogPosts = () => {
   console.warn("### getAllBlogPosts executed! ###")

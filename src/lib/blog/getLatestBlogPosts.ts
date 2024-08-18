@@ -1,7 +1,6 @@
 import fs from "fs"
 import path from "path"
 import { typedMatter } from "@/lib/typedMatter"
-import { BlogMetaDataType } from "@/types/blogFrontmatter"
 import readingTime from "reading-time"
 
 const monthNames = [

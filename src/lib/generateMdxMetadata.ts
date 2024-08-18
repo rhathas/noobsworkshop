@@ -1,5 +1,3 @@
-import { BlogMetaDataType } from "@/types/blogFrontmatter"
-
 export const generateMdxMetadata = (frontmatterData: BlogMetaDataType, slug: string) => {
   return {
     ...frontmatterData,

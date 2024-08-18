@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useMemo, useState } from "react"
+import { createContext, ReactNode, useCallback, useContext, useMemo, useState } from "react"
 
 interface DrawerContextType {
   isDrawerOpen: boolean
@@ -7,7 +7,7 @@ interface DrawerContextType {
 
 const DrawerContext = createContext<DrawerContextType | undefined>(undefined)
 
-export const DrawerProvider = ({ children }) => {
+export const DrawerProvider = ({ children }: { children: ReactNode }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   // Use useCallback to memoize the function
