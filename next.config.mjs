@@ -8,7 +8,19 @@ import remarkGfm from 'remark-gfm'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  distDir: 'dist',
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  transpilePackages: ["next-image-export-optimizer"],
+  env: {
+    nextImageExportOptimizer_imageFolderPath: "public/images",
+    nextImageExportOptimizer_exportFolderPath: "dist",
+    nextImageExportOptimizer_quality: "75",
+    nextImageExportOptimizer_storePicturesInWEBP: "true",
+    nextImageExportOptimizer_exportFolderName: "exportedImages",
+    nextImageExportOptimizer_generateAndUseBlurImages: "true",
+    nextImageExportOptimizer_remoteImageCacheTTL: "0",
+  },
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
@@ -36,15 +48,6 @@ const nextConfig = {
     fileLoaderRule.exclude = /\.svg$/i
 
     return config
-  },
-  async redirects() {
-    return [
-      {
-        source: '/blog',
-        destination: '/blog/1',
-        permanent: true,
-      },
-    ]
   },
 }
 export default withMDX({
