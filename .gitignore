@@ -36,3 +36,5 @@ yarn-error.log*
 next-env.d.ts
 /remarkPlugin/
 /dist/
+/**/exportedImages
+/public/images/next-image-export-optimizer-hashes.json
