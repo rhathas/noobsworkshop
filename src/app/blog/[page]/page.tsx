@@ -14,6 +14,14 @@ const PER_PAGE = 10
 const allBlogPosts = getAllBlogPosts()
 const totalPages = Math.ceil(allBlogPosts.length / PER_PAGE)
 
+export async function generateStaticParams() {
+  return Array.from({ length: totalPages }).map((_, i) => {
+    return {
+      page: (i + 1).toString(),
+    }
+  })
+}
+
 export default function PaginatedBlog({ params }: PaginatedBlogProps) {
   const blogPosts = allBlogPosts.slice((Number(params.page) - 1) * PER_PAGE, Number(params.page) * PER_PAGE)
   if (Number(params.page) > totalPages) {
@@ -37,9 +45,4 @@ export default function PaginatedBlog({ params }: PaginatedBlogProps) {
       {totalPages > PER_PAGE && <Pagination currentPage={Number(params.page)} totalPages={totalPages} />}
     </main>
   )
-}
-
-export const generateStaticParams = () => {
-  // const allBlogPosts = getAllBlogPosts()
-  return Array.from({ length: totalPages }).map((_, i) => i + 1)
 }
