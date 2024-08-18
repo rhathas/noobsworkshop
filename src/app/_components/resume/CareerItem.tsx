@@ -33,15 +33,15 @@ export const CareerItem = ({ item }: { item: CareerItemType }) => {
   const startDateObject = parseYearMonthToDate(item.startDate)
   const endDateObject = parseYearMonthToDate(item.endDate)
   return (
-    <div id={"career-" + item.id} className={"bg-card flex flex-col rounded p-4"}>
-      <div className={"text-secondary flex flex-row gap-2 text-sm"}>
+    <div id={"career-" + item.id} className={"flex flex-col rounded bg-card p-4"}>
+      <div className={"flex flex-row gap-2 text-sm text-secondary"}>
         <p>
           {formatDateToMonthYear(startDateObject)} - {formatDateToMonthYear(endDateObject)}
         </p>
         <p>({calculateTimeDifference(startDateObject, endDateObject)})</p>
       </div>
       <div>
-        <p className={"text-primary text-xl font-semibold"}>{item.jobTitle}</p>
+        <p className={"text-xl font-semibold text-primary"}>{item.jobTitle}</p>
         {item.companyName && <p className={"text-gray-200"}>{item.companyName}</p>}
         <p className={"text-sm text-gray-400"}>{item.location}</p>
       </div>

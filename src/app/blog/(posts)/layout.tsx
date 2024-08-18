@@ -9,7 +9,7 @@ export default function BlogPostsLayout({
   return (
     <article
       className={`
-        prose prose-stone prose-invert bg-card my-2 max-w-none rounded p-4 pb-8
+        prose prose-stone prose-invert my-2 max-w-none rounded bg-card p-4 pb-8
         lg:prose-xl lg:p-8 lg:pb-12
       `}
     >

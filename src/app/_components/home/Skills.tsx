@@ -11,7 +11,7 @@ export const Skills = () => {
       <h2 className={"py-2 text-2xl font-semibold text-gray-400"}>Skills:</h2>
       <div className={"flex w-full flex-row flex-wrap gap-2"}>
         {skills.map((skill) => (
-          <div className={"bg-card rounded px-4 py-2"} key={skill}>
+          <div className={"rounded bg-card px-4 py-2"} key={skill}>
             {skill}
           </div>
         ))}

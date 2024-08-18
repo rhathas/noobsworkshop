@@ -40,7 +40,7 @@ export const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
           <Link
             href={`/blog/1`}
             className={`
-              bg-card flex aspect-square size-12 items-center justify-center rounded-full p-4 text-lg font-medium
+              flex aspect-square size-12 items-center justify-center rounded-full bg-card p-4 text-lg font-medium
               lg:size-16
             `}
           >
@@ -68,7 +68,7 @@ export const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
             href={`/blog/${pageNumber}`}
             key={`pagination-item-${pageNumber}`}
             className={`
-              bg-card flex aspect-square size-12 items-center justify-center rounded-full p-4 text-lg font-medium
+              flex aspect-square size-12 items-center justify-center rounded-full bg-card p-4 text-lg font-medium
               lg:size-16
             `}
           >
@@ -84,7 +84,7 @@ export const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
           <Link
             href={`/blog/${totalPages}`}
             className={`
-              bg-card flex aspect-square size-12 items-center justify-center rounded-full p-4 text-lg font-medium
+              flex aspect-square size-12 items-center justify-center rounded-full bg-card p-4 text-lg font-medium
               lg:size-16
             `}
           >

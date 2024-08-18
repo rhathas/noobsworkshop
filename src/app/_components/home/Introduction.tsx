@@ -2,7 +2,7 @@ export const Introduction = () => {
   return (
     <div
       className={`
-        bg-card w-full flex-col rounded px-8 py-4 text-gray-300
+        w-full flex-col rounded bg-card px-8 py-4 text-gray-300
         lg:flex
       `}
     >
