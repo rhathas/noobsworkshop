@@ -8,7 +8,6 @@ export const ResumeFooter = () => {
       top: 0,
       behavior: "smooth",
     })
-    console.log("scrollToTop")
   }
   return (
     <div

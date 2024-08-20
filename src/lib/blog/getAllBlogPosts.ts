@@ -5,7 +5,6 @@ import readingTime from "reading-time"
 import { typedMatter } from "@/lib/typedMatter"
 
 export const getAllBlogPosts = () => {
-  console.warn("### getAllBlogPosts executed! ###")
   return globSync("src/app/blog/(posts)/*/*/*", { withFileTypes: true })
     .filter((file) => file.isDirectory())
     .map((folder) => {
