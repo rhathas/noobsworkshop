@@ -12,7 +12,12 @@ type BlogListItemProps = {
 
 export const BlogListItem = ({ title, description, previewImage, slug, date, readingTime }: BlogListItemProps) => {
   return (
-    <div className={"flex w-full flex-col gap-4 rounded bg-card p-4"}>
+    <div
+      className={`
+        flex w-full flex-col gap-4 rounded bg-card p-4
+        lg:px-8
+      `}
+    >
       <Link href={`/blog/${slug}`} className={"relative aspect-video w-full"}>
         <ExportedImage
           className={`
