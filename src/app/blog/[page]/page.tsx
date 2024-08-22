@@ -28,7 +28,7 @@ export default function PaginatedBlog({ params }: PaginatedBlogProps) {
     notFound()
   }
   return (
-    <main className="mt-2 flex min-h-screen flex-col gap-2">
+    <main className="mt-2 flex min-h-screen flex-col gap-4">
       {blogPosts &&
         blogPosts.length > 0 &&
         blogPosts.map((post, index) => (

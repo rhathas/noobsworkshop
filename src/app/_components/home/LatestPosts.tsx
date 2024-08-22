@@ -14,17 +14,19 @@ export const LatestPosts = () => {
       >
         Latest Blog Posts:
       </h2>
-      {latestBlogPosts.map((post, index) => (
-        <BlogListItem
-          key={`${index}-${post.data.title}`}
-          title={post.data.title}
-          description={post.data.description}
-          previewImage={post.data.previewImage}
-          slug={post.slug}
-          date={post.data.date}
-          readingTime={post.data.readingTime}
-        />
-      ))}
+      <div className={"flex flex-col gap-4"}>
+        {latestBlogPosts.map((post, index) => (
+          <BlogListItem
+            key={`${index}-${post.data.title}`}
+            title={post.data.title}
+            description={post.data.description}
+            previewImage={post.data.previewImage}
+            slug={post.slug}
+            date={post.data.date}
+            readingTime={post.data.readingTime}
+          />
+        ))}
+      </div>
     </div>
   )
 }

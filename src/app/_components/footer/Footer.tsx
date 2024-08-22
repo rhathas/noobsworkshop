@@ -11,7 +11,7 @@ export const Footer = () => {
         <p>All rights Reserved.</p>
       </div>
       <Link
-        href={"https://github.com/rhathas"}
+        href={"https://github.com/rhathas/noobsworkshop"}
         target="_blank"
         rel="noopener"
         className={"flex flex-row items-center gap-2"}
