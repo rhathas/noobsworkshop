@@ -1,0 +1,148 @@
+---
+title: Personal Blog with Resume website with Next.js and MDX Edited
+description: A simple yet powerful personal blog and resume website built with Next.js and MDX, hosted on GitHub Pages. Explore how to create a dynamic static site, integrate custom React components, and optimize images—all in one project.
+previewImage: /seo_images/blog/2024/august/Preview_Personal_Blog_with_Resume.jpg
+authors:
+  - name: Ogulcan Gündüz
+date: 2024-08-22
+---
+
+import {CollapsibleMDX} from "@/app/_components/blog/CollapsibleMDX"
+import {BlogItemInfo} from "@/app/_components/blog/BlogItemInfo"
+import projectStuctureImage from "./Project-structure.png"
+import {BlogImage} from "@/app/_components/blog/BlogImage"
+
+# Personal Blog with Resume website with Next.js and MDX Edited
+<BlogItemInfo date={frontmatter.date} readingTime={readingTime.text} />
+
+Over the years, I've started designing and developing several personal websites, but I never actually finished and published any of them—sometimes due to perfectionism and other times, plain laziness. This time, I've decided to apply one of the best rules of thumb I've learned in my career: **"Start small and simple, then iterate and improve on it."**
+
+So, here is a very simple personal blog that includes a resume page, built with Next.js Static Site Generation (SSG) and MDX, and hosted on GitHub Pages.
+
+## Why I Chose This Tech Stack
+
+I wanted a static site that I could host on GitHub Pages. While Astro might be a more reliable option for SSG, I needed a simple Next.js project in my portfolio and wanted to experiment with [Next.js SSG](https://nextjs.org/docs/app/building-your-application/deploying#static-html-export) capabilities using [MDX](https://mdxjs.com).
+
+Writing in [Markdown](https://www.markdownguide.org) is always a breeze, but I knew I'd eventually want to showcase custom React components in my blog posts. That’s where MDX came into play. I considered using [MDX-Remote](https://github.com/hashicorp/next-mdx-remote) to manage MDX files separately, but since this is a small personal project focused on integrating custom components (hopefully in the future), it seemed easier to include them directly in the project for app routing and SSG.
+
+For the first time in a personal project, I used TailwindCSS for speed and simplicity. I can always use custom CSS for specific components later on, but the idea is to publish first and improve later.
+
+Finally, I chose [GitHub Pages](https://pages.github.com) since it's free for public repositories, and I’ve already added the source code as part of my portfolio. The project is built and deployed with GitHub Actions on every push to the main branch.
+
+## Project Structure
+
+<BlogImage src={projectStuctureImage} alt="Personal Blog with Resume website with Next.js and MDX Edited - Project File Structure" />
+<CollapsibleMDX title={'See this in ASCII text'}>
+  ```
+  ProjectRoot/
+  ├── public/
+  │ └── images
+  │ │ └── blog
+  │ │ │ └── 2024
+  │ │ │ │ └── august
+  │ │ │ │ │ └── Preview_image_for_metadata_of_the_blog_post.jpeg   -// This will be included in frontmatter
+  ├── src/
+  │ ├── app/
+  │ │ ├── _components/   -// This will be excluded from AppRouter and holds all components
+  │ │ │ ├── blog/
+  │ │ │ ├── footer/
+  │ │ │ ├── header/
+  │ │ │ ├── home/
+  │ │ │ └── resume/
+  │ │ ├── blog/
+  │ │ │ ├── (posts)/   -// Used paranthesis for App Router to ignore this folder
+  │ │ │ │ └── (2024)/   -// Used year in paranthesis to organise posts
+  │ │ │ │ │ └── (August)/   -// Used month names in paranthesis to organise posts
+  │ │ │ │ │ │ └── blog-title-as-slug/   -// This will be used by App Router for the url of the blog post
+  │ │ │ │ │ │ ├── page.mdx   -// MDX file which holds our blog post data
+  │ │ │ │ │ │ ├── An_image_included_in_the_blog_post.jpeg   -// Any image which is included in the post
+  │ │ │ │ └── CustomComponent.tsx   -// Any custom component which will be used only in the post
+  │ │ │ └── [page]/   -// Dynamic routing for pagination
+  │ │ │ │ ├── layout.tsx   -// Sublayout to add pagination and filter elements
+  │ │ │ │ └── page.tsx   -// Dynamic page to list blog post with pagination
+  │ │ │ └── page.tsx   -//Permenant redirect to "/blog/1"
+  │ │ ├── resume/
+  │ │ │ └── page.tsx
+  │ │ ├── layout.tsx
+  │ │ └── page.tsx   -// This is the home page with "/" route
+  │ ├── data/ -// Every data is stored as json
+  │ │ ├── resume/
+  │ │ │ ├── career.json
+  │ │ │ └── ...
+  │ │ └── tags.json
+  │ ├── lib/   -// general use functions
+  │ ├── statics/   -// Static images that are used in design
+  │ │ └── icons/
+  │ └── types/   -// TypeScript types and interfaces (d.ts files)
+  ├── mdx-components.tsx
+  ├── next.config.mjs
+  ├── package.json
+  ├── tailwind.config.ts
+  └── tsconfig.json
+  ```
+</CollapsibleMDX>
+
+
+The project structure follows the `src` directory and App Router setup. Routes are determined by the directory names, with `page.tsx` files (or `route.ts` for API endpoints, which are not used in this project).
+
+All general components are located in the `_components` directory, which is designated as a [private directory](https://nextjs.org/docs/app/building-your-application/routing/colocation#private-folders) using the `_` prefix.
+
+Blog pages and posts are organized within the `blog` directory. The `/blog` route redirects to `/blog/1` via the `blog/page.tsx` file, which is then handled by the `blog/[page]/page.tsx` dynamic route file. While this could be managed in `next.config.mjs`, a page file in the blog folder is necessary for a fully static site with `output: export`.
+
+###### `next.config.mjs` with permanent direct:
+```
+const nextConfig = {
+...
+  async redirects() {
+    return [
+      {
+        source: '/blog',
+        destination: '/blog/1',
+        permanent: true,
+      },
+    ]
+  },
+}
+```
+
+All dynamic routes are pre-generated during the build phase using the `generateStaticParams` function.
+
+Blog posts are organized in directories by year and month, and are turned into [Route Groups](https://nextjs.org/docs/app/building-your-application/routing/colocation#route-groups) by wrapping their names in parentheses (e.g., `(2024)` or `(August)`).
+
+The `data` directory holds static data for easy editing, such as tags, career details, and skills for the resume components.
+
+The `libs`, `statics`, and `types` directories are self-explanatory.
+
+## Working with Markdown and MDX
+
+When I decided to create this personal website a week ago, I immediately knew I didn’t want to use a content management system. Since Markdown is widely used by programmers and supported by all the note-taking apps I use ([Notion](https://www.notion.so), [Obsidian](https://obsidian.md)), it was the best tool to write and format content with ease. My initial idea was to connect Notion or Obsidian to my website to manage content there. However, I also wanted a playground to experiment and showcase interactive elements in my posts, which is where MDX shines. MDX allows you to use JSX in your Markdown content, enabling interactive elements to be embedded directly.
+
+With the App Router folder structure, each blog post can be treated as a separate mini-project with its own custom components. Simultaneously, general components (like `BlogItemInfo.tsx` and `BlogImage.tsx` in `_components`) can be reused across the site.
+
+## Caveats of In-App MDX Files
+
+#### Listing All Blog Posts
+
+Without a database, listing all blog posts requires using the file system to iterate through directories, retrieve files, and extract metadata ([frontmatter](https://mdxjs.com/guides/frontmatter/)). While this could impact performance if served dynamically, it's not a significant issue for a small static site.
+
+#### Managing Blog Posts and MDX Files
+
+Managing all blog posts within the project files might become tedious. This setup doesn’t use any MDX editor or CMS. Every new post or edit must be committed to GitHub and built, though GitHub Actions automate the build step. Missing an MDX editor can be mitigated with IDE plugins. In my case, I use WebStorm with the MDX plugin and the Next.js development server for previews. Where this setup excels is in treating each blog post as a mini-project, allowing for completely custom components and functionality in isolated environments. This is a great way to showcase unique features for different topics.
+
+#### Type Checking with TypeScript
+
+Type checking only works in an IDE, not via the CLI. Some remark plugins that add variables to MDX files (e.g., [remark-reading-time](https://www.npmjs.com/package/remark-reading-time)) lack proper types without an import. I haven't searched for a solution since it's a personal project, and I can check types manually, but this could be problematic in larger projects with multiple contributors. Additionally, there’s an [issue](https://youtrack.jetbrains.com/issue/WEB-55563/Support-path-mappings-from-tsconfig.json-jsconfig.json-in-.mdx-files) in WebStorm where path mappings from `tsconfig.json` in MDX files don’t properly recognize component types due to a "Module is not installed" error.
+
+## Image Optimization in Next.js SSG
+
+Next.js has a powerful built-in Image Optimization API, but it’s not available with SSG as it requires a running server to optimize images on demand. While you can use an external service to optimize and serve images, part of this experiment was to host everything on GitHub Pages. For this purpose, I used a library called [Next-Image-Export-Optimizer](https://github.com/Niels-IO/next-image-export-optimizer), which runs after `next build` and generates all possible variations of images used in the project.
+
+This approach can create unnecessary files and bloat the project, but it's a simple solution for now and could be configured to store images outside the project in the future.
+
+## Final Thoughts
+
+In conclusion, this was a great small project to experiment with some features of the Next.js App Router and MDX. The new App Router in Next.js was certainly a breeze to work with. MDX is gaining popularity, and it’s a versatile tool for writing content.
+
+While Next.js is a great framework for generating simple static sites, it truly shines when served as a running server. I may eventually host this project as a server after further experimentation, but for static sites, I still prefer Astro.
+
+I hope to share more stories and articles here. Although the design can be improved, this blog will be a great place to experiment and showcase custom creations. Plus, maintaining a blog will be a great motivation for personal projects and organizing my thoughts.
