@@ -15,7 +15,6 @@ export const CollapsibleMDX = ({ title, children }: CollapsibleMDXProps) => {
   const handleToggleCollapse = () => {
     setCollapsed((collapsed) => !collapsed)
   }
-  console.log("CollapsibleMDX children: ", children)
   return (
     <>
       <div
